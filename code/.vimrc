@@ -35,6 +35,10 @@ inoremap ' ''<esc>i
 :noremap <Up> <nop>
 :noremap <Down> <nop>
 
+" Helpful delete/change into blackhole buffer
+:noremap <leader>d "_d
+:noremap <leader>c "_c
+
 set guicursor=
 set noshowmatch
 set relativenumber

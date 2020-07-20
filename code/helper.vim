@@ -1,7 +1,7 @@
 nnoremap <leader>ps :call Post()<cr>
 nnoremap <leader>ss :call Send()<cr>
 nnoremap <leader>pp <cr>:w<cr>:!python3 %<cr>
-nnoremap <leader>d oprint('<esc>pa: ', <esc>pa)<esc>
+nnoremap <leader>pd oprint('<esc>pa: ', <esc>pa)<esc>
 nnoremap <leader>t :w<cr>:!pytest<cr>
 
 "wykonuje funkcję sql, cały paragraf, pod kursorem
