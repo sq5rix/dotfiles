@@ -1,8 +1,5 @@
 nnoremap <leader>ps :call Post()<cr>
 nnoremap <leader>ss :call Send()<cr>
-nnoremap <leader>pp <cr>:w<cr>:!python3 %<cr>
-nnoremap <leader>pd oprint('<esc>pa: ', <esc>pa)<esc>
-nnoremap <leader>t :w<cr>:!pytest<cr>
 
 "wykonuje funkcję sql, cały paragraf, pod kursorem
 function! Post()
@@ -17,6 +14,6 @@ endfunction
 " zapisuje i wysyła bieżący plik
 function! Send()
     execute ':write'
-    let s = system("python3 /sam/sam_2018/import/send_status.py < " . @%)
-    echom 'Sent ' . @%
+    let s = system("python3 /sam/sam_2018/import/swietlik/send_status.py < " . @%)
+    echom 'Sent ' . s
 endfunction
