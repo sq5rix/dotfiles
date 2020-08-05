@@ -1,0 +1,14 @@
+{
+    "coc.preferences.formatOnType": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "python",
+        "lua",
+        "json",
+        "html",
+        "css"
+    ],
+    "python.jediEnabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.lintOnSave": true,
+    "python.formatting.provider": "black"
+}
