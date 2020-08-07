@@ -16,28 +16,28 @@ inoremap < <> <esc>i
 inoremap " ""<esc>i
 inoremap ' ''<esc>i
 
-:nnoremap Y y$<Esc>
-:nnoremap <F5> :buffers<CR>:buffer<Space>
-:nnoremap <C-n> :bn<cr>
-:nnoremap <C-b> :bp<cr>
-:nnoremap <leader>sm :Gvsplit master:%<cr>
-:nnoremap <leader>dm :Gvdiff master:%<cr>
-:nnoremap <leader>gl :Glog<cr>
-:nnoremap <leader>e $p
-:nnoremap <c-s> :w<cr>
+nnoremap Y y$<Esc>
+nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <C-n> :bn<cr>
+nnoremap <C-b> :bp<cr>
+nnoremap <leader>sm :Gvsplit master:%<cr>
+nnoremap <leader>dm :Gvdiff master:%<cr>
+nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>e $p
+nnoremap <c-s> :w<cr>
 
-:inoremap <Left> <nop>
-:inoremap <Right> <nop>
-:inoremap <Up> <nop>
-:inoremap <Down> <nop>
-:noremap <Left> <nop>
-:noremap <Right> <nop>
-:noremap <Up> <nop>
-:noremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+noremap <Up> <nop>
+noremap <Down> <nop>
 
 " Helpful delete/change into blackhole buffer
-:noremap <leader>d "_d
-:noremap <leader>c "_c
+noremap <leader>d "_d
+noremap <leader>c "_c
 
 " run python print some debug info and run tests
 nnoremap <leader>pp <cr>:w<cr>:CocCommand python.execInTerminal %<cr>
@@ -76,28 +76,24 @@ inoremap < <> <esc>i
 inoremap " ""<esc>i
 inoremap ' ''<esc>i
 
-:nnoremap Y y$<Esc>
-:nnoremap <F5> :buffers<CR>:buffer<Space>
-:nnoremap <C-n> :bn<cr>
-:nnoremap <C-b> :bp<cr>
-:nnoremap <leader>sm :Gvsplit master:%<cr>
-:nnoremap <leader>dm :Gvdiff master:%<cr>
-:nnoremap <leader>gl :Glog<cr>
-:nnoremap <leader>e $p
-:nnoremap <c-s> :w<cr>
+nnoremap Y y$<Esc>
+nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <C-n> :bn<cr>
+nnoremap <C-b> :bp<cr>
+nnoremap <leader>sm :Gvsplit master:%<cr>
+nnoremap <leader>dm :Gvdiff master:%<cr>
+nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>e $p
+nnoremap <c-s> :w<cr>
 
-:inoremap <Left> <nop>
-:inoremap <Right> <nop>
-:inoremap <Up> <nop>
-:inoremap <Down> <nop>
-:noremap <Left> <nop>
-:noremap <Right> <nop>
-:noremap <Up> <nop>
-:noremap <Down> <nop>
-
-" Helpful delete/change into blackhole buffer
-:noremap <leader>d "_d
-:noremap <leader>c "_c
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+noremap <Up> <nop>
+noremap <Down> <nop>
 
 " run python print some debug info and run tests
 nnoremap <leader>pp <cr>:w<cr>:CocCommand python.execInTerminal %<cr>
@@ -245,3 +241,4 @@ endfun
 
 autocmd BufWritePre * :call TrimWhitespace()
 
+let g:python3_host_prog='/usr/bin/python3.8'
