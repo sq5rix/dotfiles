@@ -142,6 +142,7 @@ Plug 'morhetz/gruvbox'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
+Plug 'bignimbus/pop-punk.vim'
 
 call plug#end()
 
@@ -178,7 +179,7 @@ set rtp+=/usr/local/opt/fzf
 " -- use the current working directory
 let g:rg_derive_root='true'
 
-colorscheme gruvbox
+colorscheme "pop-punk"
 
 let loaded_matchparen = 1
 
@@ -242,3 +243,6 @@ endfun
 autocmd BufWritePre * :call TrimWhitespace()
 
 let g:python3_host_prog='/usr/bin/python3.8'
+let g:airline_section_c='🎸 %F'
+let g:terminal_ansi_colors = pop_punk#AnsiColors()
+let g:airline_theme="pop_punk"
