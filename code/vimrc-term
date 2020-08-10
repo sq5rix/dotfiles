@@ -100,6 +100,7 @@ nnoremap <leader>pp <cr>:w<cr>:CocCommand python.execInTerminal %<cr>
 nnoremap <leader>pd oprint('<esc>pa: ', <esc>pa)<esc>
 nnoremap <leader>t :w<cr>:!pytest<cr>
 
+set guicursor=
 set noshowmatch
 set relativenumber
 set nohlsearch
@@ -125,22 +126,19 @@ set scrolloff=10
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
 Plug 'justinmk/vim-sneak'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'junegunn/goyo.vim'
 Plug 'uguu-org/vim-matrix-screensaver'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "  color schemes
 Plug 'morhetz/gruvbox'
-Plug 'phanviet/vim-monokai-pro'
-Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'bignimbus/pop-punk.vim'
 
@@ -179,7 +177,8 @@ set rtp+=/usr/local/opt/fzf
 " -- use the current working directory
 let g:rg_derive_root='true'
 
-colorscheme "pop-punk"
+colorscheme gruvbox
+set notermguicolors
 
 let loaded_matchparen = 1
 
@@ -243,6 +242,3 @@ endfun
 autocmd BufWritePre * :call TrimWhitespace()
 
 let g:python3_host_prog='/usr/bin/python3.8'
-let g:airline_section_c='🎸 %F'
-let g:terminal_ansi_colors = pop_punk#AnsiColors()
-let g:airline_theme="pop_punk"
