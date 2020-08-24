@@ -9,10 +9,13 @@ set wildmenu
 let mapleader = " "
 let maplocalleader = " "
 
+" -- use the current working directory
+let g:rg_derive_root='true'
+
 inoremap ( ()<esc>i
 inoremap [ []<esc>i
 inoremap { {}<esc>i
-inoremap < <> <esc>i
+inoremap < <><esc>i
 inoremap " ""<esc>i
 inoremap ' ''<esc>i
 
@@ -24,31 +27,36 @@ nnoremap <leader>sm :Gvsplit master:%<cr>
 nnoremap <leader>dm :Gvdiff master:%<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>e $p
-nnoremap <c-s> :w<cr>
+nnoremap <c-s> :wa<cr>
 
 inoremap <Left> <nop>
 inoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
-noremap <Up> <nop>
-noremap <Down> <nop>
-
-" Helpful delete/change into blackhole buffer
-noremap <leader>d "_d
-noremap <leader>c "_c
+noremap <Up> :res -5<cr>
+noremap <Down> :res +5<cr>
+inoremap <Up> :res -5<cr>
+inoremap <Down> :res +5<cr>
+noremap <Left> :vertical resize -5<cr>
+noremap <Right> :vertical resize +5<cr>
+inoremap <Left> :vertical resize -5<cr>
+inoremap <Right> :vertical resize +5<cr>
 
 " run python print some debug info and run tests
-nnoremap <leader>pp <cr>:w<cr>:CocCommand python.execInTerminal %<cr>
-nnoremap <leader>pd oprint('<esc>pa: ', <esc>pa)<esc>
-nnoremap <leader>t :w<cr>:!pytest<cr>
+nnoremap <leader>p :CocCommand python.execInTerminal<cr>
+nnoremap <leader>d oprint('<esc>pa: ', <esc>pa)<esc>
+
+" explorer
+:nmap <space>f :CocCommand explorer<CR>
+
+" prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 "" Do not ring errors
 set noerrorbells
 set novisualbell
 
-" makro do zamiany [] na get()
+" macro to change [] to get()
 let @g='f[c .get(kjf]r)'
 
 " Give more space for displaying messages.
@@ -58,49 +66,8 @@ set cmdheight=2
 " delays and poor user experience.
 set updatetime=50
 
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-set nocompatible
-syntax enable
-filetype plugin on
-set path +=**
-set wildmenu
-
-let mapleader = " "
-let maplocalleader = " "
-
-inoremap ( ()<esc>i
-inoremap [ []<esc>i
-inoremap { {}<esc>i
-inoremap < <> <esc>i
-inoremap " ""<esc>i
-inoremap ' ''<esc>i
-
-nnoremap Y y$<Esc>
-nnoremap <F5> :buffers<CR>:buffer<Space>
-nnoremap <C-n> :bn<cr>
-nnoremap <C-b> :bp<cr>
-nnoremap <leader>sm :Gvsplit master:%<cr>
-nnoremap <leader>dm :Gvdiff master:%<cr>
-nnoremap <leader>gl :Glog<cr>
-nnoremap <leader>e $p
-nnoremap <c-s> :w<cr>
-
-inoremap <Left> <nop>
-inoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
-noremap <Up> <nop>
-noremap <Down> <nop>
-
-" run python print some debug info and run tests
-nnoremap <leader>pp <cr>:w<cr>:CocCommand python.execInTerminal %<cr>
-nnoremap <leader>pd oprint('<esc>pa: ', <esc>pa)<esc>
-nnoremap <leader>t :w<cr>:!pytest<cr>
-
 set guicursor=
+set notermguicolors
 set noshowmatch
 set relativenumber
 set nohlsearch
@@ -126,17 +93,21 @@ set scrolloff=10
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-surround'
-Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-commentary'
 Plug 'ervandew/supertab'
 Plug 'mbbill/undotree'
+Plug 'justinmk/vim-sneak'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/goyo.vim'
-Plug 'uguu-org/vim-matrix-screensaver'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
+Plug 'mtth/scratch.vim'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'uguu-org/vim-matrix-screensaver'
+Plug 'junegunn/goyo.vim'
 
 "  color schemes
 Plug 'morhetz/gruvbox'
@@ -166,20 +137,18 @@ nnoremap <C-T> :Files<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>s :BLines<cr>
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-
 set rtp+=~/.fzf
 set rtp+=/usr/local/opt/fzf
 
-" -- use the current working directory
-let g:rg_derive_root='true'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 
 colorscheme gruvbox
-set notermguicolors
+set background=dark
+highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
 
 let loaded_matchparen = 1
 
@@ -188,20 +157,8 @@ let g:vrfr_rg = 'true'
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
 
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <leader>ps :Rg<SPACE>
 nnoremap <C-p> :GFiles<CR>
-nnoremap <leader>+ :vertical resize +5<CR>
-nnoremap <leader>- :vertical resize -5<CR>
-nnoremap <leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-vnoremap X "_d
 inoremap <C-c> <esc>
 
 function! s:check_back_space() abort
@@ -242,4 +199,3 @@ endfun
 
 autocmd BufWritePre * :call TrimWhitespace()
 
-let g:python3_host_prog='/usr/bin/python3.8'

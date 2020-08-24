@@ -7,7 +7,7 @@
         "html",
         "css"
     ],
-    "python.jediEnabled": false,
+    "python.jediEnabled": true,
     "python.linting.pylintEnabled": true,
     "python.linting.lintOnSave": true,
     "python.formatting.provider": "black"
