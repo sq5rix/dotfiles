@@ -1,4 +1,5 @@
 set encoding=utf-8
+set fileencoding=utf-8
 
 set nocompatible
 syntax enable
@@ -49,15 +50,12 @@ nnoremap <leader>d oprint('<esc>pa: ', <esc>pa)<esc>
 " explorer
 :nmap <space>f :CocCommand explorer<CR>
 
-" prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
 "" Do not ring errors
 set noerrorbells
 set novisualbell
 
 " macro to change [] to get()
-let @g='f[c .get(kjf]r)'
+let @g='f[c .get(lxf]r)'
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -93,21 +91,19 @@ set scrolloff=10
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ervandew/supertab'
 Plug 'mbbill/undotree'
 Plug 'justinmk/vim-sneak'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
-Plug 'mtth/scratch.vim'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'uguu-org/vim-matrix-screensaver'
 Plug 'junegunn/goyo.vim'
+Plug 'uguu-org/vim-matrix-screensaver'
 
 "  color schemes
 Plug 'morhetz/gruvbox'
@@ -147,8 +143,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 colorscheme gruvbox
 set background=dark
-highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
 
 let loaded_matchparen = 1
 
@@ -182,9 +176,9 @@ nnoremap <leader>cr :CocRestart<CR>
 
 " Automatically save the current session whenever vim is closed
 autocmd VimLeave * mksession! ~/.vim/shutdown_session.vim
-noremap <F7> :source ~/.vim/shutdown_session.vim<CR>
-noremap <F2> :mksession! ~/.vim/manual_session.vim<cr>
-noremap <F3> :source ~/.vim/manual_session.vim<cr>
+nnoremap <F7> :source ~/.vim/shutdown_session.vim<CR>
+nnoremap <F2> :mksession! ~/.vim/manual_session.vim<cr>
+nnoremap <F3> :source ~/.vim/manual_session.vim<cr>
 
 " Sweet Sweet FuGITive
 nmap <leader>gh :diffget //3<CR>
