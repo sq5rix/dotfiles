@@ -34,6 +34,7 @@ inoremap <Left> <nop>
 inoremap <Right> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
+" resizing windows
 noremap <Up> :res -5<cr>
 noremap <Down> :res +5<cr>
 inoremap <Up> :res -5<cr>
@@ -46,6 +47,11 @@ inoremap <Right> :vertical resize +5<cr>
 " run python print some debug info and run tests
 nnoremap <leader>p :CocCommand python.execInTerminal<cr>
 nnoremap <leader>d oprint('<esc>pa: ', <esc>pa)<esc>
+nnoremap <silent> <leader>ct :!ctags -R --exclude=*.js<CR>
+
+" edit vimrc
+:nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+:nnoremap <leader>sv :source ~/.vimrc<cr>
 
 " explorer
 :nmap <space>f :CocCommand explorer<CR>
@@ -112,9 +118,6 @@ Plug 'bignimbus/pop-punk.vim'
 
 call plug#end()
 
-" -- edit vimrc
-:nnoremap <leader>ev :vsplit ~/.vimrc<cr>
-:nnoremap <leader>sv :source ~/.vimrc<cr>
 
 " -- abbreviations
 inorea mai_ if __name__ == '__main__':<cr>main()

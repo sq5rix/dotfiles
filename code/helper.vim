@@ -17,3 +17,7 @@ function! Send()
     let s = system("python3 /sam/sam_2018/import/swietlik/send_status.py < " . @%)
     echom 'Sent ' . s
 endfunction
+
+command! -nargs=1 Silent
+\   execute 'silent !' . <q-args>
+\ | execute 'redraw!'
