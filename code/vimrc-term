@@ -16,12 +16,10 @@ let g:rg_derive_root='true'
 inoremap ( ()<esc>i
 inoremap [ []<esc>i
 inoremap { {}<esc>i
-inoremap < <><esc>i
 inoremap " ""<esc>i
 inoremap ' ''<esc>i
 
 nnoremap Y y$<Esc>
-nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <C-n> :bn<cr>
 nnoremap <C-b> :bp<cr>
 nnoremap <leader>sm :Gvsplit master:%<cr>
@@ -35,14 +33,14 @@ inoremap <Right> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 " resizing windows
-noremap <Up> :res -5<cr>
-noremap <Down> :res +5<cr>
-inoremap <Up> :res -5<cr>
-inoremap <Down> :res +5<cr>
-noremap <Left> :vertical resize -5<cr>
-noremap <Right> :vertical resize +5<cr>
-inoremap <Left> :vertical resize -5<cr>
-inoremap <Right> :vertical resize +5<cr>
+noremap <Up> :res -3<cr>
+noremap <Down> :res +3<cr>
+inoremap <Up> :res -3<cr>
+inoremap <Down> :res +3<cr>
+noremap <Left> :vertical resize -3<cr>
+noremap <Right> :vertical resize +3<cr>
+inoremap <Left> :vertical resize -3<cr>
+inoremap <Right> :vertical resize +3<cr>
 
 " run python print some debug info and run tests
 nnoremap <leader>p :CocCommand python.execInTerminal<cr>
@@ -145,7 +143,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 colorscheme gruvbox
-set background=dark
+highlight Normal ctermbg=NONE
+
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
 
 let loaded_matchparen = 1
 

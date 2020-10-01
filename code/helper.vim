@@ -1,4 +1,4 @@
-nnoremap <leader>ps :call Post()<cr>
+nnoremap <leader>ps :call Post()<cr>}
 nnoremap <leader>ss :call Send()<cr>
 
 "wykonuje funkcję sql, cały paragraf, pod kursorem
