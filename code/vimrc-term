@@ -108,6 +108,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim'
 Plug 'uguu-org/vim-matrix-screensaver'
+Plug 'guns/xterm-color-table.vim'
 
 "  color schemes
 Plug 'morhetz/gruvbox'
