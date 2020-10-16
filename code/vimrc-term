@@ -13,12 +13,6 @@ let maplocalleader = " "
 " -- use the current working directory
 let g:rg_derive_root='true'
 
-inoremap ( ()<esc>i
-inoremap [ []<esc>i
-inoremap { {}<esc>i
-inoremap " ""<esc>i
-inoremap ' ''<esc>i
-
 nnoremap Y y$<Esc>
 nnoremap <C-n> :bn<cr>
 nnoremap <C-b> :bp<cr>
