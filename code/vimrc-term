@@ -21,6 +21,7 @@ nnoremap <leader>dm :Gvdiff master:%<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>e $p
 nnoremap <c-s> :wa<cr>
+nnoremap <c-q> :q!<cr>
 
 inoremap <Left> <nop>
 inoremap <Right> <nop>
@@ -37,7 +38,9 @@ inoremap <Left> :vertical resize -3<cr>
 inoremap <Right> :vertical resize +3<cr>
 
 " run python print some debug info and run tests
-nnoremap <leader>p :CocCommand python.execInTerminal<cr>
+nnoremap <F6> :CocCommand python.execInTerminal<cr>
+nmap <silent> <F8>  <Plug>(coc-diagnostic-prev)
+nmap <silent> <F9>  <Plug>(coc-diagnostic-next)
 nnoremap <leader>d oprint('<esc>pa: ', <esc>pa)<esc>
 nnoremap <silent> <leader>ct :!ctags -R --exclude=*.js<CR>
 
@@ -174,7 +177,7 @@ nnoremap <leader>cr :CocRestart<CR>
 
 " Automatically save the current session whenever vim is closed
 autocmd VimLeave * mksession! ~/.vim/shutdown_session.vim
-nnoremap <F7> :source ~/.vim/shutdown_session.vim<CR>
+nnoremap <F4> :source ~/.vim/shutdown_session.vim<CR>
 nnoremap <F2> :mksession! ~/.vim/manual_session.vim<cr>
 nnoremap <F3> :source ~/.vim/manual_session.vim<cr>
 
