@@ -1,0 +1,24 @@
+
+    Physical Volume = pv
+    Volume Group = vg
+    Logical Volume = lv
+
+lvcreate -L 3G -n lvstuff vgpool
+mkfs -t ext3 /dev/vgpool/lvstuff
+mkdir /mnt/stuff
+mount -t ext3 /dev/vgpool/lvstuff /mnt/stuff
+#extend pool
+lvextend -L8G /dev/vgpool/lvstuff
+resize2fs /dev/vgpool/lvstuff
+
+lvscan
+pvs
+vgs
+
+# database volume
+lvcreate -L 2T -n db ubuntu-vg
+lvrename ubuntu-vg db lv_db
+mkfs -t ext4 /dev/ubuntu-vg/lv_db
+sudo mkdir /db
+sudo mount -t ext4 /dev/mapper/ubuntu--vg-lv_db /db
+
